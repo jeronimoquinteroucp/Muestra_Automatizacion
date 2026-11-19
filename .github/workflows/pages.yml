@@ -3,10 +3,9 @@ name: 05 - Despliegue a GitHub Pages
 on:
   push:
     branches: [ main ]
-    paths: [ 'docs/**' ] # Solo cuando cambia algo en la carpeta docs/
+    paths: [ 'docs/**' ]
   workflow_dispatch:
 
-# Permisos necesarios para publicar en GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -36,4 +35,4 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Mostrar URL de la página publicada
-        run: echo "Página publicada en: ${{ steps.despliegue.outputs.page_url }}"
+        run: echo ${{ steps.despliegue.outputs.page_url }}
